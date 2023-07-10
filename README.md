@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -23,26 +23,23 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+This is the apartment booking service using [NestJS](https://github.com/nestjs/nest) framework as BackEnd.
+Database: PostgresQL
+Cache: Redis
+Deployment: Docker
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
 ```bash
-$ npm install
+$ docker-compose -f dev.yml build
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ docker-compose -f dev.yml up
 ```
 
 ## Test

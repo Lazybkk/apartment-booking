@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "81e161ed-2bd9-45bd-a1b6-55da2168395b",
+		"name": "Apartment Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3221493",
+		"_collection_link": "https://universal-sunset-549493.postman.co/workspace/My-Workspace~0b5bf063-431b-4fbb-8680-b5cf4ba38a05/collection/3221493-81e161ed-2bd9-45bd-a1b6-55da2168395b?action=share&creator=3221493&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Get All Available",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}://apartment/{{apartmentID}}/room?start_date=2023-07-10&end_date=2023-07-10",
+							"protocol": "{{host}}",
+							"host": [
+								"apartment"
+							],
+							"path": [
+								"{{apartmentID}}",
+								"room"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-07-10"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-07-10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start_date\": \"2023-07-10\",\n    \"end_date\": \"2023-07-15\",\n    \"customer_info\": {\n        \"name\": \"Alex\",\n        \"phoneNumber\": \"000000\",\n        \"nationalID\": \"xxxxx\"\n    },\n    \"receptionist\": \"employee_id\",\n    \"apartment_id\": \"\",\n    \"room\": [],\n    \"status\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/{{bookingID}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"{{bookingID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

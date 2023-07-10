@@ -6,7 +6,8 @@ import { Room } from "../room/room.entity";
 
 export enum Status {
     CANCELED = 'CANCELED',
-    CONFIRMED = 'CONFIRMED'
+    CONFIRMED = 'CONFIRMED',
+    ON_HOLD = 'ON_HOLD'
 
 }
 
@@ -30,6 +31,7 @@ export class Booking extends CommonEntity{
     @Column()
     room: Room
 
-    
+    @Column()
+    status: Status
 
 }
