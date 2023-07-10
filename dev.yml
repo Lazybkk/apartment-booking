@@ -1,0 +1,52 @@
+version: '3.8'
+services:    
+    apartment:
+        container_name: apartment
+        build:
+            context: .
+            target: development
+            dockerfile : ./compose/nestjs/Dockerfile
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        command: npm run start:dev
+        networks:
+            - webnet
+        env_file:
+            - .env
+        ports:
+            - ${BE_PORT}:${BE_PORT}
+        links:
+            - apartment_db
+            - apartment_redis
+        depends_on:
+            - apartment_redis
+            - apartment_db
+
+    apartment_redis:
+        container_name: pet_redis
+        image: redis:5
+        networks:
+            - webnet
+
+    apartment_db:
+        container_name: pet_db
+        image: postgres:12
+        
+        networks:
+            - webnet
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASS}
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_DB: ${DB_NAME}
+            PG_DATA: /var/lib/postgresql/data
+        ports:
+            - ${DB_PORT}:${DB_PORT}
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+
+networks:
+    webnet:
+volumes:
+    pgdata:
+
