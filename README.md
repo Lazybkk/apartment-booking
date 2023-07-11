@@ -42,6 +42,10 @@ $ docker-compose -f dev.yml build
 $ docker-compose -f dev.yml up
 ```
 
+## Noted for interviewer
+Hi Interviewer, 
+I know I will fail the test because the source just initiated the base class and docker setup for infrastructure, I don't have the time to implement the logic for the Task requirement due to my wife just giving birth. Please comment on the feedback to Fetch Technology, I fail because I don't do the correct requirement. I am so sorry for taking time for your company to process the interview. Thanks a lot.
+
 ## Test
 
 ```bash
